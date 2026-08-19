@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartChoice | Product Reviews & Buying Guides</title>
+<meta name="description" content="SmartChoice पर products की जानकारी, reviews और buying guides आसान भाषा में पढ़ें।">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Smart<span>Choice</span></a>
+    <button id="menuToggle" class="menu-toggle" aria-label="Menu">☰</button>
+    <nav id="mainNav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Buying Guides</a>
+      <a href="#products">Products</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclosure</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Theme">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="badge">🛍️ Smart Shopping</span>
+      <h1>सही Product चुनें, <span>बेहतर फैसला लें।</span></h1>
+      <p>आसान भाषा में product reviews, buying guides और useful comparisons।</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn primary">Products देखें</a>
+        <a href="blog.html" class="btn secondary">Buying Guides</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-icon">🛒</div>
+      <h3>Smart Shopping</h3>
+      <p>खरीदने से पहले जानकारी, तुलना और useful tips।</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-label">Categories</span>
+      <h2>अपनी Category चुनें</h2>
+    </div>
+    <div class="category-grid">
+      <button class="category-card" data-category="audio"><span>🎧</span><strong>Audio</strong><small>Earbuds & Headphones</small></button>
+      <button class="category-card" data-category="tech"><span>📱</span><strong>Tech</strong><small>Phones & Smart Devices</small></button>
+      <button class="category-card" data-category="accessories"><span>🔋</span><strong>Accessories</strong><small>Useful Tech Accessories</small></button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-label">Featured Products</span>
+      <h2>Products Explore करें</h2>
+      <p>Product information और reviews देखें।</p>
+    </div>
+    <div class="product-toolbar">
+      <input type="search" id="searchInput" placeholder="Product search करें...">
+      <select id="sortProducts">
+        <option value="default">Recommended</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="rating">Most Reviewed</option>
+      </select>
+    </div>
+    <div id="productGrid" class="product-grid"></div>
+    <div id="noResults" class="no-results"><div>🔍</div><h3>Product नहीं मिला</h3><p>कोई दूसरा keyword try करें।</p></div>
+  </div>
+</section>
+
+<section class="section alt-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-label">Our Process</span>
+      <h2>हम Products को कैसे देखते हैं?</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card"><span>01</span><h3>Research</h3><p>Product की specifications और available information देखते हैं।</p></div>
+      <div class="process-card"><span>02</span><h3>Compare</h3><p>जरूरी features और alternatives की तुलना करते हैं।</p></div>
+      <div class="process-card"><span>03</span><h3>Explain</h3><p>जानकारी को आसान भाषा में समझाने की कोशिश करते हैं।</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-label">Buying Guides</span>
+      <h2>Latest Guides</h2>
+      <p>खरीदारी से पहले useful जानकारी पढ़ें।</p>
+    </div>
+    <div class="article-grid">
+      <article class="article-card"><div class="article-icon">🎧</div><div class="article-content"><span class="product-category">Audio</span><h3>Wireless Earbuds खरीदने की Guide</h3><p>Battery, comfort और connectivity समझें।</p><a href="article.html?article=earbuds-guide" class="buy-btn">पढ़ें →</a></div></article>
+      <article class="article-card"><div class="article-icon">🔋</div><div class="article-content"><span class="product-category">Accessories</span><h3>Power Bank खरीदने की Guide</h3><p>Capacity और charging को समझें।</p><a href="article.html?article=powerbank-guide" class="buy-btn">पढ़ें →</a></div></article>
+      <article class="article-card"><div class="article-icon">⌚</div><div class="article-content"><span class="product-category">Tech</span><h3>Smartwatch खरीदने से पहले क्या देखें?</h3><p>Compatibility और features समझें।</p><a href="article.html?article=smartwatch-guide" class="buy-btn">पढ़ें →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-section">
+  <div class="container">
+    <div class="section-heading"><span class="section-label">FAQ</span><h2>अक्सर पूछे जाने वाले सवाल</h2></div>
+    <div class="faq">
+      <details><summary>क्या SmartChoice products बेचता है?</summary><p>नहीं। यह website product information, reviews और buying guides प्रदान करती है। खरीदारी संबंधित seller की website पर होती है।</p></details>
+      <details><summary>Affiliate link क्या होता है?</summary><p>Affiliate link एक tracking link हो सकता है। इसके माध्यम से eligible purchase होने पर website को commission मिल सकता है।</p></details>
+      <details><summary>क्या product की कीमत हमेशा यही रहेगी?</summary><p>जरूरी नहीं। Product की price और availability बदल सकती है। खरीदने से पहले seller की website पर current price जांचें।</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div><a href="index.html" class="logo">Smart<span>Choice</span></a><p>Useful product information और buying guides.</p></div>
+    <div><a href="blog.html">Buying Guides</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Affiliate Disclosure</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="copyright">© 2026 SmartChoice. All Rights Reserved.</div>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
