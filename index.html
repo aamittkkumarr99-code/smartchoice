@@ -1,10 +1,700 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SmartChoice — smart product comparisons and buying guides"><title>SmartChoice | Smart Shopping</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="header"><div class="container nav"><a class="brand" href="index.html"><span>SC</span> SmartChoice</a><button class="hamb" id="hamb">☰</button><nav id="nav"><a href="index.html">Home</a><a href="#categories">Categories</a><a href="#products">Products</a><a href="blog.html">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="theme" id="theme">☾</button></div></header>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartChoice - आसान product guides, comparisons और smart shopping tips">
+  <title>SmartChoice — Smart Shopping</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid #e7eaf0;
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: #2864e8;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #2864e8;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: #f0f3f8;
+      padding: 10px 13px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 75px 0;
+      background: linear-gradient(135deg, #eef4ff, #ffffff);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e5edff;
+      color: #2864e8;
+      padding: 7px 12px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #2864e8;
+    }
+
+    .hero p {
+      color: #667085;
+      max-width: 600px;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid #2864e8;
+    }
+
+    .btn-primary {
+      background: #2864e8;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #2864e8;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 20px 55px rgba(31,50,90,.12);
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 75px;
+      margin-bottom: 15px;
+    }
+
+    .hero-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      margin: auto;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title small {
+      color: #2864e8;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin: 7px 0;
+    }
+
+    .section-title p {
+      color: #7a8497;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #e8ebf1;
+      border-radius: 17px;
+      padding: 25px 15px;
+      text-align: center;
+      transition: .2s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    .category-icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .category h3 {
+      font-size: 16px;
+    }
+
+    .category p {
+      color: #8a92a1;
+      font-size: 12px;
+    }
+
+    /* PRODUCTS */
+    .product-tools {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .product-tools input,
+    .product-tools select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #dfe3ea;
+      border-radius: 10px;
+      background: white;
+      outline: none;
+    }
+
+    .product-tools input:focus,
+    .product-tools select:focus {
+      border-color: #2864e8;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* BUYING PROCESS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 17px;
+      padding: 25px;
+      border: 1px solid #e7eaf0;
+    }
+
+    .step-number {
+      color: #2864e8;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .step h3 {
+      margin: 8px 0;
+    }
+
+    .step p {
+      color: #7b8494;
+      font-size: 13px;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      padding: 65px 0;
+    }
+
+    .newsletter-box {
+      background: #17204a;
+      color: white;
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .newsletter-box p {
+      color: #cbd1e5;
+      margin: 10px auto 22px;
+      max-width: 550px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: auto;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    .newsletter-form button {
+      border: 0;
+      border-radius: 10px;
+      padding: 0 18px;
+      background: #2864e8;
+      color: white;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #101426;
+      color: white;
+      padding: 50px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #aeb5c8;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .copyright {
+      border-top: 1px solid #292f43;
+      margin-top: 35px;
+      padding-top: 18px;
+      text-align: center;
+      color: #8d95aa;
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .nav {
+        min-height: 60px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hero {
+        padding: 45px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .product-tools {
+        flex-direction: column;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form button {
+        padding: 13px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="index.html" class="brand">Smart<span>Choice</span></a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="#products">Products</a>
+      <a href="#categories">Categories</a>
+      <a href="blog.html">Buying Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-<section class="hero"><div class="container hero-grid"><div><span class="pill">SMART SHOPPING • 2026</span><h1>खरीदारी में <span>smart choice</span> करें।</h1><p>Tech, Study, Home और Audio products के लिए साफ comparisons, buying guides और practical tips.</p><div class="actions"><a class="btn primary" href="#products">Explore Products</a><a class="btn secondary" href="blog.html">Buying Guides</a></div><div class="trust"><span>✓ आसान भाषा</span><span>✓ Practical comparisons</span><span>✓ Mobile friendly</span></div></div><div class="hero-panel"><div class="orb">✦</div><span>EDITOR'S APPROACH</span><h3>Need → Compare → Decide</h3><p>पहले जरूरत समझें, फिर features और budget compare करें।</p><div class="score"><b>Smart</b><i></i><i></i><i></i><i></i><i></i></div></div></div></section>
-<section class="section" id="categories"><div class="container"><div class="section-title"><span class="eyebrow">CATEGORIES</span><h2>आप क्या ढूँढ रहे हैं?</h2><p>एक category चुनें और relevant products देखें।</p></div><div class="categories"><button data-cat="Tech">📱<b>Tech</b><small>Gadgets & accessories</small></button><button data-cat="Study">📚<b>Study</b><small>Student essentials</small></button><button data-cat="Home">🏠<b>Home</b><small>Useful daily products</small></button><button data-cat="Audio">🎧<b>Audio</b><small>Headphones & speakers</small></button></div></div></section>
-<section class="section alt" id="products"><div class="container"><div class="section-title row"><div><span class="eyebrow">SMART PICKS</span><h2>Featured Products</h2></div><div class="filters"><input id="search" type="search" placeholder="Search products…"><select id="filter"><option value="All">All categories</option><option>Tech</option><option>Study</option><option>Home</option><option>Audio</option></select></div></div><div id="grid" class="products"></div><div id="empty" class="empty" hidden>No products found.</div></div></section>
-<section class="section"><div class="container"><div class="section-title"><span class="eyebrow">HOW IT WORKS</span><h2>Simple buying process</h2></div><div class="steps"><article><b>01</b><h3>अपनी जरूरत तय करें</h3><p>Use-case और budget पहले लिख लें।</p></article><article><b>02</b><h3>Options compare करें</h3><p>Features, compatibility और warranty देखें।</p></article><article><b>03</b><h3>Final decision लें</h3><p>Current price और seller details verify करें।</p></article></div></div></section>
-<section class="newsletter"><div class="container news"><div><span class="eyebrow">SMART UPDATES</span><h2>नई guides के लिए तैयार रहें</h2><p>यह demo newsletter form है। Live करने के लिए email service connect करें।</p></div><form id="newsForm"><input type="email" required placeholder="Your email address"><button class="btn primary">Subscribe</button></form></div></section>
-</main><footer><div class="container footer-grid"><div><a class="brand" href="index.html"><span>SC</span> SmartChoice</a><p>Smart shopping guides, comparisons और useful buying tips.</p></div><div><h4>Explore</h4><a href="#products">Products</a><a href="blog.html">Buying Guides</a><a href="about.html">About</a></div><div><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Affiliate Disclosure</a></div></div><div class="copyright">© 2026 SmartChoice. All rights reserved.</div></footer>
-<script src="products.js"></script><script src="script.js"></script></body></html>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <span class="badge">SMART SHOPPING • 2026</span>
+
+        <h1>
+          खरीदारी में
+          <span>Smart Choice</span>
+          करें
+        </h1>
+
+        <p>
+          Tech, Study, Home और Audio products के लिए आसान
+          guides, comparisons और useful buying tips।
+        </p>
+
+        <div class="buttons">
+          <a href="#products" class="btn btn-primary">
+            Explore Products
+          </a>
+
+          <a href="blog.html" class="btn btn-secondary">
+            Buying Guides
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-icon">🛒</div>
+        <h3>Smart Shopping</h3>
+        <p>
+          सही product चुनने में मदद करने वाली
+          आसान जानकारी और comparisons।
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="container">
+
+      <div class="section-title">
+        <small>Explore Categories</small>
+        <h2>आप क्या ढूंढ रहे हैं?</h2>
+        <p>अपनी पसंद की category चुनें</p>
+      </div>
+
+      <div class="categories">
+
+        <a class="category" href="products.html">
+          <div class="category-icon">📱</div>
+          <h3>Tech</h3>
+          <p>Gadgets & smart devices</p>
+        </a>
+
+        <a class="category" href="products.html">
+          <div class="category-icon">🎓</div>
+          <h3>Study</h3>
+          <p>Student essentials</p>
+        </a>
+
+        <a class="category" href="products.html">
+          <div class="category-icon">🏠</div>
+          <h3>Home</h3>
+          <p>Useful daily products</p>
+        </a>
+
+        <a class="category" href="products.html">
+          <div class="category-icon">🎧</div>
+          <h3>Audio</h3>
+          <p>Headphones & speakers</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="container">
+
+      <div class="section-title">
+        <small>Smart Picks</small>
+        <h2>Featured Products</h2>
+        <p>Products की जानकारी और reviews देखें</p>
+      </div>
+
+      <div class="product-tools">
+        <input
+          id="search"
+          type="search"
+          placeholder="🔍 Search products..."
+        >
+
+        <select id="filter">
+          <option value="All">All Categories</option>
+          <option value="Tech">Tech</option>
+          <option value="Study">Study</option>
+          <option value="Home">Home</option>
+          <option value="Audio">Audio</option>
+        </select>
+      </div>
+
+      <div id="grid">
+        <!-- products.js यहाँ products दिखाएगा -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BUYING PROCESS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-title">
+        <small>How It Works</small>
+        <h2>Smart buying process</h2>
+      </div>
+
+      <div class="steps">
+
+        <article class="step">
+          <span class="step-number">01</span>
+          <h3>अपनी जरूरत समझें</h3>
+          <p>
+            Use-case और budget पहले तय करें।
+          </p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">02</span>
+          <h3>Options compare करें</h3>
+          <p>
+            Features, compatibility और warranty देखें।
+          </p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">03</span>
+          <h3>Final decision लें</h3>
+          <p>
+            Product details verify करके खरीदारी करें।
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-box">
+
+        <h2>नई guides के लिए तैयार रहें 🚀</h2>
+
+        <p>
+          नई product guides और useful shopping tips
+          की updates पाने के लिए subscribe करें।
+        </p>
+
+        <form class="newsletter-form">
+          <input
+            type="email"
+            placeholder="Your email address"
+            required
+          >
+          <button type="submit">Subscribe</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>SmartChoice</h3>
+        <p>
+          Smart shopping guides, comparisons
+          और useful buying tips।
+        </p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <div class="footer-links">
+          <a href="products.html">Products</a>
+          <a href="blog.html">Buying Guides</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Legal</h3>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Affiliate Disclosure</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 SmartChoice. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+</script>
+
+</body>
+</html>
