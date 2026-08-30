@@ -29,8 +29,8 @@ select {
 }
 
 .container {
-  width: min(1180px, 92%);
-  margin: auto;
+  width: min(1200px, 94%);
+  margin: 0 auto;
 }
 
 /* TOP BAR */
