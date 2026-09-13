@@ -610,41 +610,42 @@ footer a:hover {
 @media (max-width: 480px) {
 
   .container {
-    width: 94%;
+    width: 92%;
+  }
+
+  .header .container {
+    min-height: 65px;
+  }
+
+  .brand span:first-child {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .brand strong {
+    font-size: 20px;
+  }
+
+  .hero {
+    padding: 35px 0;
+  }
+
+  .hero h1 {
+    font-size: 31px;
+  }
+
+  .hero p {
+    font-size: 15px;
   }
 
   .categories,
   .products {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr;
   }
 
-  .category {
-    padding: 12px;
-  }
-
-  .category img {
-    height: 90px;
-  }
-
-  .product-card {
-    padding: 8px;
-  }
-
-  .product-card img {
-    height: 125px;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-
-  .actions .btn {
-    width: 100%;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
+  .trust-row {
+    gap: 12px;
   }
 }
 
