@@ -1,68 +1,105 @@
-const productGrid=document.getElementById("productGrid");
-const searchInput=document.getElementById("searchInput");
-const noResults=document.getElementById("noResults");
-const sortProducts=document.getElementById("sortProducts");
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  const nav = document.getElementById("navlinks");
 
-function getPrice(price){return Number(price.replace("₹","").replace(/,/g,"").trim());}
+  if (nav) {
+    nav.classList.toggle("show");
+  }
+}
 
-function displayProducts(products){
-  if(!productGrid) return;
-  productGrid.innerHTML="";
-  noResults.style.display=products.length?"none":"block";
-  products.forEach(product=>{
-    const card=document.createElement("article");
-    card.className="product-card";
-    card.innerHTML=`
-      <div class="product-image"><span>${product.emoji}</span><b>${product.badge}</b></div>
-      <div class="product-body">
-        <span class="product-category">${product.categoryName}</span>
-        <h3>${product.name}</h3>
-        <div class="rating">${product.rating} <small>(${product.reviews})</small></div>
-        <p>${product.description}</p>
-        <div class="price">${product.price}</div>
-        <div class="product-actions">
-          <a href="product.html?product=${encodeURIComponent(product.id)}" class="btn secondary">Review</a>
-          <a href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored noopener" class="btn primary">कीमत देखें →</a>
-        </div>
-      </div>`;
-    productGrid.appendChild(card);
+
+// ===== CLOSE MOBILE MENU AFTER CLICK =====
+document.querySelectorAll(".navlinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    const nav = document.getElementById("navlinks");
+
+    if (nav) {
+      nav.classList.remove("show");
+    }
+  });
+});
+
+
+// ===== PRODUCT FILTER + SEARCH =====
+const cards = Array.from(document.querySelectorAll(".product"));
+const categories = document.querySelectorAll(".category");
+const searchBox = document.getElementById("search");
+
+function filterProducts(filter = "all", term = "") {
+  const searchTerm = term.toLowerCase().trim();
+
+  cards.forEach(card => {
+    const category = card.dataset.category || "";
+    const name = card.dataset.name || "";
+
+    const categoryMatch =
+      filter === "all" || category === filter;
+
+    const searchMatch =
+      !searchTerm || name.toLowerCase().includes(searchTerm);
+
+    card.style.display =
+      categoryMatch && searchMatch ? "block" : "none";
   });
 }
 
-function currentProducts(){
-  let items=[...productData];
-  const q=(searchInput?.value||"").toLowerCase().trim();
-  if(q) items=items.filter(p=>(p.name+" "+p.categoryName+" "+p.description+" "+p.features.join(" ")).toLowerCase().includes(q));
-  const sort=sortProducts?.value||"default";
-  if(sort==="low") items.sort((a,b)=>getPrice(a.price)-getPrice(b.price));
-  if(sort==="high") items.sort((a,b)=>getPrice(b.price)-getPrice(a.price));
-  if(sort==="rating") items.sort((a,b)=>b.reviews-a.reviews);
-  return items;
-}
 
-function refresh(){displayProducts(currentProducts());}
-if(searchInput) searchInput.addEventListener("input",refresh);
-if(sortProducts) sortProducts.addEventListener("change",refresh);
-document.querySelectorAll(".category-card").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    if(searchInput) searchInput.value="";
-    const cat=btn.dataset.category;
-    displayProducts(productData.filter(p=>p.category===cat));
-    document.getElementById("products")?.scrollIntoView({behavior:"smooth"});
+// ===== CATEGORY BUTTONS =====
+categories.forEach(category => {
+  category.addEventListener("click", () => {
+
+    categories.forEach(item => {
+      item.classList.remove("active");
+    });
+
+    category.classList.add("active");
+
+    const filter = category.dataset.filter || "all";
+    const searchTerm = searchBox ? searchBox.value : "";
+
+    filterProducts(filter, searchTerm);
   });
 });
-refresh();
 
-const themeToggle=document.getElementById("themeToggle");
-const savedTheme=localStorage.getItem("theme");
-if(savedTheme==="dark"){document.body.classList.add("dark"); if(themeToggle) themeToggle.textContent="☀️";}
-themeToggle?.addEventListener("click",()=>{
-  document.body.classList.toggle("dark");
-  const dark=document.body.classList.contains("dark");
-  localStorage.setItem("theme",dark?"dark":"light");
-  themeToggle.textContent=dark?"☀️":"🌙";
+
+// ===== SEARCH =====
+if (searchBox) {
+  searchBox.addEventListener("input", event => {
+
+    const activeCategory =
+      document.querySelector(".category.active");
+
+    const filter =
+      activeCategory?.dataset.filter || "all";
+
+    filterProducts(filter, event.target.value);
+  });
+}
+
+
+// ===== PRODUCT LINK =====
+document.querySelectorAll(".product-link").forEach(link => {
+
+  link.addEventListener("click", event => {
+    event.preventDefault();
+
+    alert(
+      "यह demo button है। बाद में यहाँ actual product link लगाया जा सकता है।"
+    );
+  });
+
 });
 
-const menuToggle=document.getElementById("menuToggle");
-const mainNav=document.getElementById("mainNav");
-menuToggle?.addEventListener("click",()=>mainNav.classList.toggle("show"));
+
+// ===== NEWSLETTER =====
+function subscribe(event) {
+  event.preventDefault();
+
+  alert(
+    "Thanks! यह demo newsletter form है। आपका email अभी save नहीं किया गया है।"
+  );
+}
+
+
+// ===== INITIAL FILTER =====
+filterProducts("all", "");
