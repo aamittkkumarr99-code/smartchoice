@@ -3,698 +3,729 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SmartChoice - आसान product guides, comparisons और smart shopping tips">
+  <meta name="description" content="SmartChoice - Smart Shopping">
   <title>SmartChoice — Smart Shopping</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
-      color: #172033;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    /* HEADER */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid #e7eaf0;
-    }
-
-    .nav {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      font-size: 23px;
-      font-weight: 800;
-    }
-
-    .brand span {
-      color: #2864e8;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #2864e8;
-    }
-
-    .menu-btn {
-      display: none;
-      border: 0;
-      background: #f0f3f8;
-      padding: 10px 13px;
-      border-radius: 10px;
-      font-size: 20px;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 75px 0;
-      background: linear-gradient(135deg, #eef4ff, #ffffff);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #e5edff;
-      color: #2864e8;
-      padding: 7px 12px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 62px);
-      line-height: 1.08;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #2864e8;
-    }
-
-    .hero p {
-      color: #667085;
-      max-width: 600px;
-      font-size: 17px;
-      margin-bottom: 25px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 20px;
-      border-radius: 11px;
-      font-weight: 700;
-      font-size: 14px;
-      border: 1px solid #2864e8;
-    }
-
-    .btn-primary {
-      background: #2864e8;
-      color: white;
-    }
-
-    .btn-secondary {
-      background: white;
-      color: #2864e8;
-    }
-
-    .hero-card {
-      background: white;
-      border-radius: 25px;
-      padding: 35px;
-      box-shadow: 0 20px 55px rgba(31,50,90,.12);
-      text-align: center;
-    }
-
-    .hero-icon {
-      font-size: 75px;
-      margin-bottom: 15px;
-    }
-
-    .hero-card h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .hero-card p {
-      font-size: 14px;
-      margin: auto;
-    }
-
-    /* SECTIONS */
-    .section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-title small {
-      color: #2864e8;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 11px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      margin: 7px 0;
-    }
-
-    .section-title p {
-      color: #7a8497;
-    }
-
-    /* CATEGORIES */
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .category {
-      background: white;
-      border: 1px solid #e8ebf1;
-      border-radius: 17px;
-      padding: 25px 15px;
-      text-align: center;
-      transition: .2s;
-    }
-
-    .category:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,.08);
-    }
-
-    .category-icon {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .category h3 {
-      font-size: 16px;
-    }
-
-    .category p {
-      color: #8a92a1;
-      font-size: 12px;
-    }
-
-    /* PRODUCTS */
-    .product-tools {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-
-    .product-tools input,
-    .product-tools select {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #dfe3ea;
-      border-radius: 10px;
-      background: white;
-      outline: none;
-    }
-
-    .product-tools input:focus,
-    .product-tools select:focus {
-      border-color: #2864e8;
-    }
-
-    #grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    /* BUYING PROCESS */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      background: white;
-      border-radius: 17px;
-      padding: 25px;
-      border: 1px solid #e7eaf0;
-    }
-
-    .step-number {
-      color: #2864e8;
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    .step h3 {
-      margin: 8px 0;
-    }
-
-    .step p {
-      color: #7b8494;
-      font-size: 13px;
-    }
-
-    /* NEWSLETTER */
-    .newsletter {
-      padding: 65px 0;
-    }
-
-    .newsletter-box {
-      background: #17204a;
-      color: white;
-      border-radius: 24px;
-      padding: 40px;
-      text-align: center;
-    }
-
-    .newsletter-box p {
-      color: #cbd1e5;
-      margin: 10px auto 22px;
-      max-width: 550px;
-    }
-
-    .newsletter-form {
-      display: flex;
-      max-width: 500px;
-      margin: auto;
-      gap: 8px;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      padding: 14px;
-      border: 0;
-      border-radius: 10px;
-    }
-
-    .newsletter-form button {
-      border: 0;
-      border-radius: 10px;
-      padding: 0 18px;
-      background: #2864e8;
-      color: white;
-      font-weight: 700;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #101426;
-      color: white;
-      padding: 50px 0 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    footer h3 {
-      margin-bottom: 12px;
-    }
-
-    footer p,
-    footer a {
-      color: #aeb5c8;
-      font-size: 13px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .copyright {
-      border-top: 1px solid #292f43;
-      margin-top: 35px;
-      padding-top: 18px;
-      text-align: center;
-      color: #8d95aa;
-      font-size: 12px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-      .nav {
-        min-height: 60px;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 18px;
-        flex-direction: column;
-        align-items: flex-start;
-        border-bottom: 1px solid #e5e7eb;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .hero {
-        padding: 45px 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      #grid {
-        grid-template-columns: 1fr;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .product-tools {
-        flex-direction: column;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-
-      .newsletter-form button {
-        padding: 13px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
 <header class="header">
   <div class="container nav">
-    <a href="index.html" class="brand">Smart<span>Choice</span></a>
 
-    <button class="menu-btn" id="menuBtn">☰</button>
+    <a class="brand" href="#home">
+      <span class="logo">SC</span>
+      SmartChoice
+    </a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="#products">Products</a>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
       <a href="#categories">Categories</a>
-      <a href="blog.html">Buying Guides</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#products">Products</a>
+      <a href="#deals">Deals</a>
+      <a href="#how">How It Works</a>
     </nav>
+
   </div>
 </header>
 
-<main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
+<!-- HERO -->
+<section class="hero" id="home">
 
-      <div>
-        <span class="badge">SMART SHOPPING • 2026</span>
+  <div class="container hero-grid">
 
-        <h1>
-          खरीदारी में
-          <span>Smart Choice</span>
-          करें
-        </h1>
+    <div class="hero-content">
 
-        <p>
-          Tech, Study, Home और Audio products के लिए आसान
-          guides, comparisons और useful buying tips।
-        </p>
+      <span class="badge">
+        ✨ Smart shopping starts here
+      </span>
 
-        <div class="buttons">
-          <a href="#products" class="btn btn-primary">
-            Explore Products
-          </a>
+      <h1>
+        खरीदारी में
+        <span>Smart Choice</span>
+        करें
+      </h1>
 
-          <a href="blog.html" class="btn btn-secondary">
-            Buying Guides
-          </a>
+      <p>
+        Useful products, honest comparisons और शानदार deals —
+        सब कुछ एक आसान जगह पर खोजें और बेहतर खरीदारी का फैसला लें।
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn btn-primary" href="#products">
+          Top Picks देखें
+        </a>
+
+        <a class="btn btn-light" href="#deals">
+          Deals देखें
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="visual">
+
+      <div class="float f1">
+        ⭐ Top Rated
+      </div>
+
+      <div class="phone">
+
+        <div class="phone-top"></div>
+
+        <div class="mini-card">
+          📱
+          <strong>Tech Picks</strong>
+          <span class="mini-price">Smart choice</span>
         </div>
-      </div>
 
-      <div class="hero-card">
-        <div class="hero-icon">🛒</div>
-        <h3>Smart Shopping</h3>
-        <p>
-          सही product चुनने में मदद करने वाली
-          आसान जानकारी और comparisons।
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CATEGORIES -->
-  <section class="section" id="categories">
-    <div class="container">
-
-      <div class="section-title">
-        <small>Explore Categories</small>
-        <h2>आप क्या ढूंढ रहे हैं?</h2>
-        <p>अपनी पसंद की category चुनें</p>
-      </div>
-
-      <div class="categories">
-
-        <a class="category" href="products.html">
-          <div class="category-icon">📱</div>
-          <h3>Tech</h3>
-          <p>Gadgets & smart devices</p>
-        </a>
-
-        <a class="category" href="products.html">
-          <div class="category-icon">🎓</div>
-          <h3>Study</h3>
-          <p>Student essentials</p>
-        </a>
-
-        <a class="category" href="products.html">
-          <div class="category-icon">🏠</div>
-          <h3>Home</h3>
-          <p>Useful daily products</p>
-        </a>
-
-        <a class="category" href="products.html">
-          <div class="category-icon">🎧</div>
-          <h3>Audio</h3>
-          <p>Headphones & speakers</p>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section class="section" id="products">
-    <div class="container">
-
-      <div class="section-title">
-        <small>Smart Picks</small>
-        <h2>Featured Products</h2>
-        <p>Products की जानकारी और reviews देखें</p>
-      </div>
-
-      <div class="product-tools">
-        <input
-          id="search"
-          type="search"
-          placeholder="🔍 Search products..."
-        >
-
-        <select id="filter">
-          <option value="All">All Categories</option>
-          <option value="Tech">Tech</option>
-          <option value="Study">Study</option>
-          <option value="Home">Home</option>
-          <option value="Audio">Audio</option>
-        </select>
-      </div>
-
-      <div id="grid">
-        <!-- products.js यहाँ products दिखाएगा -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- BUYING PROCESS -->
-  <section class="section">
-    <div class="container">
-
-      <div class="section-title">
-        <small>How It Works</small>
-        <h2>Smart buying process</h2>
-      </div>
-
-      <div class="steps">
-
-        <article class="step">
-          <span class="step-number">01</span>
-          <h3>अपनी जरूरत समझें</h3>
-          <p>
-            Use-case और budget पहले तय करें।
-          </p>
-        </article>
-
-        <article class="step">
-          <span class="step-number">02</span>
-          <h3>Options compare करें</h3>
-          <p>
-            Features, compatibility और warranty देखें।
-          </p>
-        </article>
-
-        <article class="step">
-          <span class="step-number">03</span>
-          <h3>Final decision लें</h3>
-          <p>
-            Product details verify करके खरीदारी करें।
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section class="newsletter">
-    <div class="container">
-      <div class="newsletter-box">
-
-        <h2>नई guides के लिए तैयार रहें 🚀</h2>
-
-        <p>
-          नई product guides और useful shopping tips
-          की updates पाने के लिए subscribe करें।
-        </p>
-
-        <form class="newsletter-form">
-          <input
-            type="email"
-            placeholder="Your email address"
-            required
-          >
-          <button type="submit">Subscribe</button>
-        </form>
-
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-
-    <div class="footer-grid">
-
-      <div>
-        <h3>SmartChoice</h3>
-        <p>
-          Smart shopping guides, comparisons
-          और useful buying tips।
-        </p>
-      </div>
-
-      <div>
-        <h3>Explore</h3>
-        <div class="footer-links">
-          <a href="products.html">Products</a>
-          <a href="blog.html">Buying Guides</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+        <div class="mini-card">
+          🎧
+          <strong>Best Deals</strong>
+          <span class="mini-price">Save more</span>
         </div>
-      </div>
 
-      <div>
-        <h3>Legal</h3>
-        <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-          <a href="disclaimer.html">Affiliate Disclosure</a>
+        <div class="mini-card">
+          📚
+          <strong>Study Gear</strong>
+          <span class="mini-price">Useful finds</span>
         </div>
+
       </div>
 
-    </div>
+      <div class="float f2">
+        💡 Better choice
+      </div>
 
-    <div class="copyright">
-      © 2026 SmartChoice. All rights reserved.
     </div>
 
   </div>
+
+</section>
+
+
+<!-- TRUST -->
+<div class="trust">
+
+  <div class="container trust-row">
+
+    <span>✓ Curated Picks</span>
+    <span>✓ Easy Comparison</span>
+    <span>✓ Useful Recommendations</span>
+    <span>✓ Mobile Friendly</span>
+
+  </div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2>अपनी Category चुनें</h2>
+
+      <p>
+        जिस तरह के products चाहिए,
+        उस category से जल्दी शुरू करें।
+      </p>
+
+    </div>
+
+
+    <div class="categories">
+
+      <div class="category active" data-filter="all">
+
+        <div class="cat-icon">✨</div>
+
+        <h3>All</h3>
+
+        <p>सभी picks</p>
+
+      </div>
+
+
+      <div class="category" data-filter="tech">
+
+        <div class="cat-icon">📱</div>
+
+        <h3>Tech</h3>
+
+        <p>Gadgets & accessories</p>
+
+      </div>
+
+
+      <div class="category" data-filter="study">
+
+        <div class="cat-icon">📚</div>
+
+        <h3>Study</h3>
+
+        <p>Students के लिए</p>
+
+      </div>
+
+
+      <div class="category" data-filter="home">
+
+        <div class="cat-icon">🏠</div>
+
+        <h3>Home</h3>
+
+        <p>Useful home items</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+<section class="section products-section" id="products">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2>Top Smart Picks</h2>
+
+      <p>
+        Popular और useful product ideas
+        को एक जगह देखें।
+      </p>
+
+    </div>
+
+
+    <div class="searchbar">
+
+      <input
+        id="search"
+        type="search"
+        placeholder="🔎 Product search करें..."
+      >
+
+    </div>
+
+
+    <div class="products" id="productGrid">
+
+
+      <!-- PRODUCT 1 -->
+      <article
+        class="product"
+        data-category="tech"
+        data-name="wireless earbuds"
+      >
+
+        <div class="product-img">
+          🎧
+        </div>
+
+        <div class="product-body">
+
+          <span class="tag">
+            Tech
+          </span>
+
+          <h3>
+            Wireless Earbuds
+          </h3>
+
+          <p>
+            Daily music, calls और study
+            के लिए convenient choice.
+          </p>
+
+          <div class="rating">
+            ★★★★★
+          </div>
+
+          <a
+            href="#products"
+            class="btn btn-primary product-link"
+          >
+            Check Price
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 2 -->
+      <article
+        class="product"
+        data-category="tech"
+        data-name="smart watch"
+      >
+
+        <div class="product-img">
+          ⌚
+        </div>
+
+        <div class="product-body">
+
+          <span class="tag">
+            Tech
+          </span>
+
+          <h3>
+            Smart Watch
+          </h3>
+
+          <p>
+            Everyday notifications और
+            useful features के लिए.
+          </p>
+
+          <div class="rating">
+            ★★★★☆
+          </div>
+
+          <a
+            href="#products"
+            class="btn btn-primary product-link"
+          >
+            Check Price
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 3 -->
+      <article
+        class="product"
+        data-category="study"
+        data-name="study lamp"
+      >
+
+        <div class="product-img">
+          💡
+        </div>
+
+        <div class="product-body">
+
+          <span class="tag">
+            Study
+          </span>
+
+          <h3>
+            Study Lamp
+          </h3>
+
+          <p>
+            Desk setup को simple और
+            comfortable बनाने के लिए.
+          </p>
+
+          <div class="rating">
+            ★★★★★
+          </div>
+
+          <a
+            href="#products"
+            class="btn btn-primary product-link"
+          >
+            Check Price
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 4 -->
+      <article
+        class="product"
+        data-category="study"
+        data-name="notebook set"
+      >
+
+        <div class="product-img">
+          📓
+        </div>
+
+        <div class="product-body">
+
+          <span class="tag">
+            Study
+          </span>
+
+          <h3>
+            Notebook Set
+          </h3>
+
+          <p>
+            School notes, planning और
+            everyday writing के लिए.
+          </p>
+
+          <div class="rating">
+            ★★★★☆
+          </div>
+
+          <a
+            href="#products"
+            class="btn btn-primary product-link"
+          >
+            Check Price
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 5 -->
+      <article
+        class="product"
+        data-category="home"
+        data-name="desk organizer"
+      >
+
+        <div class="product-img">
+          🗂️
+        </div>
+
+        <div class="product-body">
+
+          <span class="tag">
+            Home
+          </span>
+
+          <h3>
+            Desk Organizer
+          </h3>
+
+          <p>
+            Study या work desk को neat
+            रखने के लिए useful.
+          </p>
+
+          <div class="rating">
+            ★★★★★
+          </div>
+
+          <a
+            href="#products"
+            class="btn btn-primary product-link"
+          >
+            Check Price
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 6 -->
+      <article
+        class="product"
+        data-category="home"
+        data-name="water bottle"
+      >
+
+        <div class="product-img">
+          🥤
+        </div>
+
+        <div class="product-body">
+
+          <span class="tag">
+            Home
+          </span>
+
+          <h3>
+            Reusable Bottle
+          </h3>
+
+          <p>
+            Daily routine और school/travel
+            के लिए practical.
+          </p>
+
+          <div class="rating">
+            ★★★★☆
+          </div>
+
+          <a
+            href="#products"
+            class="btn btn-primary product-link"
+          >
+            Check Price
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DEAL -->
+<section class="deal" id="deals">
+
+  <div class="container">
+
+    <div class="deal-box">
+
+      <div>
+
+        <h2>
+          🔥 Smart Deals, Better Choices
+        </h2>
+
+        <p>
+          Deals section को regularly update
+          करके visitors को useful offers दिखाएँ।
+        </p>
+
+      </div>
+
+      <a
+        href="#products"
+        class="btn"
+      >
+        Top Picks देखें
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2>
+        How It Works
+      </h2>
+
+      <p>
+        SmartChoice पर बेहतर product
+        खोजने के सिर्फ 3 simple steps.
+      </p>
+
+    </div>
+
+
+    <div class="how-grid">
+
+
+      <div class="how">
+
+        <div class="number">
+          1
+        </div>
+
+        <h3>
+          Explore
+        </h3>
+
+        <p>
+          अपनी जरूरत के हिसाब से category
+          या product खोजें।
+        </p>
+
+      </div>
+
+
+      <div class="how">
+
+        <div class="number">
+          2
+        </div>
+
+        <h3>
+          Compare
+        </h3>
+
+        <p>
+          Useful information देखकर options
+          को समझें और compare करें।
+        </p>
+
+      </div>
+
+
+      <div class="how">
+
+        <div class="number">
+          3
+        </div>
+
+        <h3>
+          Choose
+        </h3>
+
+        <p>
+          अपनी जरूरत और budget के हिसाब
+          से final choice करें।
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+
+  <div class="container news-box">
+
+    <h2>
+      Smart updates पाना चाहते हैं?
+    </h2>
+
+    <p>
+      Useful products और deals के साथ
+      smart shopping जारी रखें।
+    </p>
+
+    <form
+      class="news-form"
+      onsubmit="subscribe(event)"
+    >
+
+      <input
+        type="email"
+        required
+        placeholder="Your email address"
+      >
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Subscribe
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container footer-grid">
+
+
+    <div>
+
+      <div class="brand footer-brand">
+
+        <span class="logo">
+          SC
+        </span>
+
+        SmartChoice
+
+      </div>
+
+      <p>
+        Smart shopping के लिए useful
+        recommendations और product
+        discovery platform.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Quick Links
+      </h3>
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#categories">
+        Categories
+      </a>
+
+      <a href="#products">
+        Products
+      </a>
+
+      <a href="#deals">
+        Deals
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Explore
+      </h3>
+
+      <a href="#how">
+        How It Works
+      </a>
+
+      <a href="#products">
+        Top Picks
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="container disclosure">
+
+    Disclosure: इस website पर future में
+    affiliate links हो सकते हैं। Affiliate
+    link से खरीदारी होने पर हमें बिना extra
+    cost के commission मिल सकता है।
+
+  </div>
+
 </footer>
 
-<script src="products.js"></script>
+
 <script src="script.js"></script>
-
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const navLinks = document.getElementById("navLinks");
-
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
-</script>
 
 </body>
 </html>
