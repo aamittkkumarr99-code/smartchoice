@@ -652,36 +652,23 @@ footer a:hover {
 
 }
 
-/* ===== MOBILE MENU FIX ===== */
+/* ===== MOBILE MENU ===== */
 @media (max-width: 768px) {
-  header {
-    position: relative;
-    z-index: 1000;
-  }
-
-  .navlinks {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    z-index: 9999;
-    padding: 18px 28px 25px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  }
-
   .navlinks.show {
     display: flex;
     flex-direction: column;
     gap: 0;
+    background: #fff;
+    padding: 18px 28px 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   }
 
-  .navlinks a {
+  .navlinks.show a {
     padding: 16px 0;
     border-bottom: 1px solid #eee;
   }
 
-  .navlinks a:last-child {
+  .navlinks.show a:last-child {
     border-bottom: none;
   }
 }
