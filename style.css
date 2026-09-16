@@ -651,3 +651,37 @@ footer a:hover {
   }
 
 }
+
+/* ===== MOBILE MENU FIX ===== */
+@media (max-width: 768px) {
+  header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .navlinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    padding: 18px 28px 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .navlinks.show {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .navlinks a {
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navlinks a:last-child {
+    border-bottom: none;
+  }
+}
