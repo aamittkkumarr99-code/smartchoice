@@ -1,731 +1,599 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SmartChoice - Smart Shopping">
+
   <title>SmartChoice — Smart Shopping</title>
+  <meta name="description" content="SmartChoice — discover useful products, trusted brands and great deals.">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header">
-  <div class="container nav">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>🚚 Free Shipping on Orders Above ₹499</div>
+    <div>🎁 Get Extra 10% OFF on First Order</div>
+    <div>🎧 24/7 Customer Support</div>
+  </div>
 
-    <a class="brand" href="#home">
-      <span class="logo">SC</span>
-      SmartChoice
-    </a>
 
-    <button class="menu" onclick="toggleMenu()">☰</button>
+  <!-- HEADER -->
+  <header class="header">
 
-    <nav class="navlinks" id="navlinks">
+    <div class="logo-area">
+      <div class="logo-box">SC</div>
+
+      <div class="brand">
+        <strong>SmartChoice</strong>
+        <span>Smarter choices. Better living.</span>
+      </div>
+    </div>
+
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input
+        type="search"
+        id="search"
+        placeholder="Search for products, brands and more..."
+      >
+      <button type="button">⌕</button>
+    </div>
+
+
+    <!-- HEADER ICONS -->
+    <div class="header-actions">
+      <div class="header-action">
+        <span>♙</span>
+        <small>Account</small>
+      </div>
+
+      <div class="header-action">
+        <span>♡</span>
+        <small>Wishlist</small>
+      </div>
+
+      <div class="header-action">
+        <span>🛒</span>
+        <small>Cart</small>
+      </div>
+    </div>
+
+
+    <!-- MOBILE MENU -->
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">
+      ☰
+    </button>
+
+  </header>
+
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+
+    <button class="all-categories">
+      ☰ &nbsp; All Categories
+    </button>
+
+    <div class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#products">Products</a>
+      <a href="#deals">Deals <b>Hot</b></a>
+      <a href="#how">How It Works</a>
+    </div>
+
+  </nav>
+
+
+  <main id="home">
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          👑 Premium Quality · Best Prices
+        </div>
+
+        <h1>
+          Upgrade Your Life with
+          <span>SmartChoice</span>
+        </h1>
+
+        <p>
+          Discover top brands, useful products and amazing deals —
+          all in one place. Shop smarter, live better.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="btn primary">
+            Shop Now →
+          </a>
+
+          <a href="#how" class="btn secondary">
+            ▶ Watch Video
+          </a>
+        </div>
+
+        <div class="hero-trust">
+
+          <div>
+            <strong>🛡️</strong>
+            <span>100% Genuine<br>Products</span>
+          </div>
+
+          <div>
+            <strong>🚚</strong>
+            <span>Fast & Free<br>Delivery</span>
+          </div>
+
+          <div>
+            <strong>🎧</strong>
+            <span>24/7<br>Support</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO VISUAL -->
+      <div class="hero-visual">
+
+        <div class="hero-circle"></div>
+
+        <div class="hero-products">
+          <div class="device phone">📱</div>
+          <div class="device laptop">💻</div>
+          <div class="device earbuds">🎧</div>
+          <div class="device watch">⌚</div>
+        </div>
+
+        <div class="hero-message">
+          Better Tech<br>
+          <span>Brighter Future →</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+
+      <div class="section-heading">
+        <div>
+          <h2>Shop by Category</h2>
+          <p>Find exactly what you need</p>
+        </div>
+
+        <a href="#">View All →</a>
+      </div>
+
+
+      <div class="category-grid">
+
+        <button class="category active" data-filter="all">
+          <span>📱</span>
+          <strong>Mobiles</strong>
+          <small>12+ Products</small>
+        </button>
+
+        <button class="category" data-filter="tech">
+          <span>💻</span>
+          <strong>Laptops</strong>
+          <small>10+ Products</small>
+        </button>
+
+        <button class="category" data-filter="audio">
+          <span>🎧</span>
+          <strong>Audio</strong>
+          <small>15+ Products</small>
+        </button>
+
+        <button class="category" data-filter="wearable">
+          <span>⌚</span>
+          <strong>Wearables</strong>
+          <small>8+ Products</small>
+        </button>
+
+        <button class="category" data-filter="home">
+          <span>🏠</span>
+          <strong>Home Appliances</strong>
+          <small>14+ Products</small>
+        </button>
+
+        <button class="category" data-filter="accessories">
+          <span>🔌</span>
+          <strong>Accessories</strong>
+          <small>20+ Products</small>
+        </button>
+
+        <button class="category" data-filter="fashion">
+          <span>👕</span>
+          <strong>Fashion</strong>
+          <small>10+ Products</small>
+        </button>
+
+        <button class="category" data-filter="gaming">
+          <span>🎮</span>
+          <strong>Gaming</strong>
+          <small>8+ Products</small>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROMO CARDS -->
+    <section class="promo-grid">
+
+      <div class="promo-card mobile-promo">
+        <div>
+          <h3>Latest Mobiles</h3>
+          <strong>Best Prices</strong>
+          <p>Top brands · Great deals</p>
+          <button>Explore Now →</button>
+        </div>
+        <span>📱</span>
+      </div>
+
+      <div class="promo-card laptop-promo">
+        <div>
+          <h3>Powerful Laptops</h3>
+          <strong>For Every Need</strong>
+          <p>Work · Study · Play</p>
+          <button>Shop Laptops →</button>
+        </div>
+        <span>💻</span>
+      </div>
+
+      <div class="promo-card audio-promo">
+        <div>
+          <h3>Premium Audio</h3>
+          <strong>Experience</strong>
+          <p>Noise Cancelling · Best Brands</p>
+          <button>Shop Now →</button>
+        </div>
+        <span>🎧</span>
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+
+      <div class="section-heading">
+        <div>
+          <h2>🔥 Deals of the Day</h2>
+          <p>Limited time offers. Don't miss out!</p>
+        </div>
+
+        <div class="timer">
+          Ends in: <b>12</b> : <b>45</b> : <b>30</b>
+        </div>
+      </div>
+
+
+      <div class="product-grid">
+
+
+        <!-- PRODUCT 1 -->
+        <article
+          class="product"
+          data-category="all"
+          data-name="iphone mobile"
+        >
+          <div class="discount">21% OFF</div>
+
+          <div class="product-image">📱</div>
+
+          <h3>iPhone 15 (128GB)</h3>
+
+          <div class="rating">⭐ 4.8 <span>(2.5k)</span></div>
+
+          <div class="price">₹79,900</div>
+
+          <button class="product-link">
+            🛒 Add to Cart
+          </button>
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+        <article
+          class="product"
+          data-category="tech"
+          data-name="macbook laptop"
+        >
+          <div class="discount">18% OFF</div>
+
+          <div class="product-image">💻</div>
+
+          <h3>MacBook Air M2</h3>
+
+          <div class="rating">⭐ 4.7 <span>(1.2k)</span></div>
+
+          <div class="price">₹89,900</div>
+
+          <button class="product-link">
+            🛒 Add to Cart
+          </button>
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+        <article
+          class="product"
+          data-category="audio"
+          data-name="sony headphones"
+        >
+          <div class="discount">32% OFF</div>
+
+          <div class="product-image">🎧</div>
+
+          <h3>Sony WH-1000XM5</h3>
+
+          <div class="rating">⭐ 4.6 <span>(980)</span></div>
+
+          <div class="price">₹24,990</div>
+
+          <button class="product-link">
+            🛒 Add to Cart
+          </button>
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+        <article
+          class="product"
+          data-category="wearable"
+          data-name="noise smartwatch"
+        >
+          <div class="discount">28% OFF</div>
+
+          <div class="product-image">⌚</div>
+
+          <h3>Noise ColorFit Pro 4</h3>
+
+          <div class="rating">⭐ 4.3 <span>(750)</span></div>
+
+          <div class="price">₹4,999</div>
+
+          <button class="product-link">
+            🛒 Add to Cart
+          </button>
+        </article>
+
+
+        <!-- PRODUCT 5 -->
+        <article
+          class="product"
+          data-category="fashion"
+          data-name="nike shoes"
+        >
+          <div class="discount">20% OFF</div>
+
+          <div class="product-image">👟</div>
+
+          <h3>Premium Running Shoes</h3>
+
+          <div class="rating">⭐ 4.5 <span>(640)</span></div>
+
+          <div class="price">₹7,999</div>
+
+          <button class="product-link">
+            🛒 Add to Cart
+          </button>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+
+      <div>
+        🛡️
+        <strong>100% Original Products</strong>
+        <small>Guaranteed authenticity</small>
+      </div>
+
+      <div>
+        🚚
+        <strong>Free Shipping</strong>
+        <small>On orders above ₹499</small>
+      </div>
+
+      <div>
+        🔄
+        <strong>Easy Returns</strong>
+        <small>Hassle free</small>
+      </div>
+
+      <div>
+        🔒
+        <strong>Secure Payments</strong>
+        <small>100% safe & encrypted</small>
+      </div>
+
+    </section>
+
+
+    <!-- DEAL BANNER -->
+    <section class="deal-banner" id="deals">
+
+      <div class="deal-icon">♛</div>
+
+      <div>
+        <h2>Save More with SmartChoice Plus</h2>
+        <p>More benefits. Better shopping.</p>
+      </div>
+
+      <button>Join Now →</button>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+    <section class="section reviews">
+
+      <div class="section-heading">
+        <div>
+          <h2>What Our Customers Say</h2>
+          <p>Real people. Real experiences.</p>
+        </div>
+
+        <a href="#">View All Reviews →</a>
+      </div>
+
+
+      <div class="review-grid">
+
+        <div class="review">
+          <div class="avatar">👩</div>
+          <div>
+            <div>⭐⭐⭐⭐⭐</div>
+            <p>
+              “Amazing products and super fast delivery!”
+            </p>
+            <strong>Priya Sharma</strong>
+            <small>Verified Buyer</small>
+          </div>
+        </div>
+
+        <div class="review">
+          <div class="avatar">👨</div>
+          <div>
+            <div>⭐⭐⭐⭐⭐</div>
+            <p>
+              “Best online shopping experience so far.”
+            </p>
+            <strong>Rohit Verma</strong>
+            <small>Verified Buyer</small>
+          </div>
+        </div>
+
+        <div class="review">
+          <div class="avatar">👩</div>
+          <div>
+            <div>⭐⭐⭐⭐⭐</div>
+            <p>
+              “Great prices and useful recommendations.”
+            </p>
+            <strong>Sneha Patel</strong>
+            <small>Verified Buyer</small>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+
+      <div>
+        <span class="newsletter-icon">✉️</span>
+
+        <div>
+          <h2>Join Our Newsletter</h2>
+          <p>Get exclusive offers and early access to deals.</p>
+        </div>
+      </div>
+
+      <form onsubmit="subscribe(event)">
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          required
+        >
+
+        <button type="submit">
+          Subscribe →
+        </button>
+      </form>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-brand">
+
+      <div class="logo-box">SC</div>
+
+      <div>
+        <h2>SmartChoice</h2>
+        <p>Smarter choices. Better living.</p>
+      </div>
+
+      <p>
+        Your one-stop destination for useful products,
+        amazing deals and smarter shopping.
+      </p>
+
+      <div class="socials">
+        ●　●　●　●
+      </div>
+
+    </div>
+
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
       <a href="#home">Home</a>
       <a href="#categories">Categories</a>
       <a href="#products">Products</a>
       <a href="#deals">Deals</a>
       <a href="#how">How It Works</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-  <div class="container hero-grid">
-
-    <div class="hero-content">
-
-      <span class="badge">
-        ✨ Smart shopping starts here
-      </span>
-
-      <h1>
-        खरीदारी में
-        <span>Smart Choice</span>
-        करें
-      </h1>
-
-      <p>
-        Useful products, honest comparisons और शानदार deals —
-        सब कुछ एक आसान जगह पर खोजें और बेहतर खरीदारी का फैसला लें।
-      </p>
-
-      <div class="buttons">
-
-        <a class="btn btn-primary" href="#products">
-          Top Picks देखें
-        </a>
-
-        <a class="btn btn-light" href="#deals">
-          Deals देखें
-        </a>
-
-      </div>
-
     </div>
 
 
-    <div class="visual">
-
-      <div class="float f1">
-        ⭐ Top Rated
-      </div>
-
-      <div class="phone">
-
-        <div class="phone-top"></div>
-
-        <div class="mini-card">
-          📱
-          <strong>Tech Picks</strong>
-          <span class="mini-price">Smart choice</span>
-        </div>
-
-        <div class="mini-card">
-          🎧
-          <strong>Best Deals</strong>
-          <span class="mini-price">Save more</span>
-        </div>
-
-        <div class="mini-card">
-          📚
-          <strong>Study Gear</strong>
-          <span class="mini-price">Useful finds</span>
-        </div>
-
-      </div>
-
-      <div class="float f2">
-        💡 Better choice
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- TRUST -->
-<div class="trust">
-
-  <div class="container trust-row">
-
-    <span>✓ Curated Picks</span>
-    <span>✓ Easy Comparison</span>
-    <span>✓ Useful Recommendations</span>
-    <span>✓ Mobile Friendly</span>
-
-  </div>
-
-</div>
-
-
-<!-- CATEGORIES -->
-<section class="section" id="categories">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <h2>अपनी Category चुनें</h2>
-
-      <p>
-        जिस तरह के products चाहिए,
-        उस category से जल्दी शुरू करें।
-      </p>
-
+    <div class="footer-column">
+      <h3>Customer Service</h3>
+      <a href="#">Help Center</a>
+      <a href="#">Track Order</a>
+      <a href="#">Return & Refund</a>
+      <a href="#">Contact Us</a>
     </div>
 
 
-    <div class="categories">
-
-      <div class="category active" data-filter="all">
-
-        <div class="cat-icon">✨</div>
-
-        <h3>All</h3>
-
-        <p>सभी picks</p>
-
-      </div>
-
-
-      <div class="category" data-filter="tech">
-
-        <div class="cat-icon">📱</div>
-
-        <h3>Tech</h3>
-
-        <p>Gadgets & accessories</p>
-
-      </div>
-
-
-      <div class="category" data-filter="study">
-
-        <div class="cat-icon">📚</div>
-
-        <h3>Study</h3>
-
-        <p>Students के लिए</p>
-
-      </div>
-
-
-      <div class="category" data-filter="home">
-
-        <div class="cat-icon">🏠</div>
-
-        <h3>Home</h3>
-
-        <p>Useful home items</p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-<section class="section products-section" id="products">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <h2>Top Smart Picks</h2>
-
-      <p>
-        Popular और useful product ideas
-        को एक जगह देखें।
-      </p>
-
+    <div class="footer-column">
+      <h3>Why Choose Us</h3>
+      <a href="#">100% Genuine Products</a>
+      <a href="#">Fast & Free Delivery</a>
+      <a href="#">Secure Payments</a>
+      <a href="#">24/7 Support</a>
     </div>
 
 
-    <div class="searchbar">
-
-      <input
-        id="search"
-        type="search"
-        placeholder="🔎 Product search करें..."
-      >
-
+    <div class="footer-bottom">
+      <span>© 2026 SmartChoice. All rights reserved.</span>
+      <span>Privacy Policy　|　Terms & Conditions</span>
     </div>
 
+  </footer>
 
-    <div class="products" id="productGrid">
 
-
-      <!-- PRODUCT 1 -->
-      <article
-        class="product"
-        data-category="tech"
-        data-name="wireless earbuds"
-      >
-
-        <div class="product-img">
-          🎧
-        </div>
-
-        <div class="product-body">
-
-          <span class="tag">
-            Tech
-          </span>
-
-          <h3>
-            Wireless Earbuds
-          </h3>
-
-          <p>
-            Daily music, calls और study
-            के लिए convenient choice.
-          </p>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <a
-            href="#products"
-            class="btn btn-primary product-link"
-          >
-            Check Price
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 2 -->
-      <article
-        class="product"
-        data-category="tech"
-        data-name="smart watch"
-      >
-
-        <div class="product-img">
-          ⌚
-        </div>
-
-        <div class="product-body">
-
-          <span class="tag">
-            Tech
-          </span>
-
-          <h3>
-            Smart Watch
-          </h3>
-
-          <p>
-            Everyday notifications और
-            useful features के लिए.
-          </p>
-
-          <div class="rating">
-            ★★★★☆
-          </div>
-
-          <a
-            href="#products"
-            class="btn btn-primary product-link"
-          >
-            Check Price
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 3 -->
-      <article
-        class="product"
-        data-category="study"
-        data-name="study lamp"
-      >
-
-        <div class="product-img">
-          💡
-        </div>
-
-        <div class="product-body">
-
-          <span class="tag">
-            Study
-          </span>
-
-          <h3>
-            Study Lamp
-          </h3>
-
-          <p>
-            Desk setup को simple और
-            comfortable बनाने के लिए.
-          </p>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <a
-            href="#products"
-            class="btn btn-primary product-link"
-          >
-            Check Price
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 4 -->
-      <article
-        class="product"
-        data-category="study"
-        data-name="notebook set"
-      >
-
-        <div class="product-img">
-          📓
-        </div>
-
-        <div class="product-body">
-
-          <span class="tag">
-            Study
-          </span>
-
-          <h3>
-            Notebook Set
-          </h3>
-
-          <p>
-            School notes, planning और
-            everyday writing के लिए.
-          </p>
-
-          <div class="rating">
-            ★★★★☆
-          </div>
-
-          <a
-            href="#products"
-            class="btn btn-primary product-link"
-          >
-            Check Price
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 5 -->
-      <article
-        class="product"
-        data-category="home"
-        data-name="desk organizer"
-      >
-
-        <div class="product-img">
-          🗂️
-        </div>
-
-        <div class="product-body">
-
-          <span class="tag">
-            Home
-          </span>
-
-          <h3>
-            Desk Organizer
-          </h3>
-
-          <p>
-            Study या work desk को neat
-            रखने के लिए useful.
-          </p>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <a
-            href="#products"
-            class="btn btn-primary product-link"
-          >
-            Check Price
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 6 -->
-      <article
-        class="product"
-        data-category="home"
-        data-name="water bottle"
-      >
-
-        <div class="product-img">
-          🥤
-        </div>
-
-        <div class="product-body">
-
-          <span class="tag">
-            Home
-          </span>
-
-          <h3>
-            Reusable Bottle
-          </h3>
-
-          <p>
-            Daily routine और school/travel
-            के लिए practical.
-          </p>
-
-          <div class="rating">
-            ★★★★☆
-          </div>
-
-          <a
-            href="#products"
-            class="btn btn-primary product-link"
-          >
-            Check Price
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- DEAL -->
-<section class="deal" id="deals">
-
-  <div class="container">
-
-    <div class="deal-box">
-
-      <div>
-
-        <h2>
-          🔥 Smart Deals, Better Choices
-        </h2>
-
-        <p>
-          Deals section को regularly update
-          करके visitors को useful offers दिखाएँ।
-        </p>
-
-      </div>
-
-      <a
-        href="#products"
-        class="btn"
-      >
-        Top Picks देखें
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <h2>
-        How It Works
-      </h2>
-
-      <p>
-        SmartChoice पर बेहतर product
-        खोजने के सिर्फ 3 simple steps.
-      </p>
-
-    </div>
-
-
-    <div class="how-grid">
-
-
-      <div class="how">
-
-        <div class="number">
-          1
-        </div>
-
-        <h3>
-          Explore
-        </h3>
-
-        <p>
-          अपनी जरूरत के हिसाब से category
-          या product खोजें।
-        </p>
-
-      </div>
-
-
-      <div class="how">
-
-        <div class="number">
-          2
-        </div>
-
-        <h3>
-          Compare
-        </h3>
-
-        <p>
-          Useful information देखकर options
-          को समझें और compare करें।
-        </p>
-
-      </div>
-
-
-      <div class="how">
-
-        <div class="number">
-          3
-        </div>
-
-        <h3>
-          Choose
-        </h3>
-
-        <p>
-          अपनी जरूरत और budget के हिसाब
-          से final choice करें।
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- NEWSLETTER -->
-<section class="newsletter">
-
-  <div class="container news-box">
-
-    <h2>
-      Smart updates पाना चाहते हैं?
-    </h2>
-
-    <p>
-      Useful products और deals के साथ
-      smart shopping जारी रखें।
-    </p>
-
-    <form
-      class="news-form"
-      onsubmit="subscribe(event)"
-    >
-
-      <input
-        type="email"
-        required
-        placeholder="Your email address"
-      >
-
-      <button
-        class="btn btn-primary"
-        type="submit"
-      >
-        Subscribe
-      </button>
-
-    </form>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-  <div class="container footer-grid">
-
-
-    <div>
-
-      <div class="brand footer-brand">
-
-        <span class="logo">
-          SC
-        </span>
-
-        SmartChoice
-
-      </div>
-
-      <p>
-        Smart shopping के लिए useful
-        recommendations और product
-        discovery platform.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Quick Links
-      </h3>
-
-      <a href="#home">
-        Home
-      </a>
-
-      <a href="#categories">
-        Categories
-      </a>
-
-      <a href="#products">
-        Products
-      </a>
-
-      <a href="#deals">
-        Deals
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Explore
-      </h3>
-
-      <a href="#how">
-        How It Works
-      </a>
-
-      <a href="#products">
-        Top Picks
-      </a>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="container disclosure">
-
-    Disclosure: इस website पर future में
-    affiliate links हो सकते हैं। Affiliate
-    link से खरीदारी होने पर हमें बिना extra
-    cost के commission मिल सकता है।
-
-  </div>
-
-</footer>
-
-
-<script src="script.js"></script>
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 
 </body>
 </html>
