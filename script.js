@@ -1,51 +1,59 @@
-// ===== MOBILE MENU =====
 function toggleMenu() {
-  const nav = document.getElementById("navlinks");
+  const menu = document.getElementById("navlinks");
 
-  if (nav) {
-    nav.classList.toggle("show");
+  if (menu) {
+    menu.classList.toggle("show");
   }
 }
 
 
-// ===== CLOSE MOBILE MENU AFTER CLICK =====
+// Mobile menu link click
 document.querySelectorAll(".navlinks a").forEach(link => {
   link.addEventListener("click", () => {
-    const nav = document.getElementById("navlinks");
+    const menu = document.getElementById("navlinks");
 
-    if (nav) {
-      nav.classList.remove("show");
+    if (menu) {
+      menu.classList.remove("show");
     }
   });
 });
 
 
-// ===== PRODUCT FILTER + SEARCH =====
-const cards = Array.from(document.querySelectorAll(".product"));
+// Product search
+const searchInput = document.getElementById("search");
+const products = document.querySelectorAll(".product");
 const categories = document.querySelectorAll(".category");
-const searchBox = document.getElementById("search");
 
-function filterProducts(filter = "all", term = "") {
-  const searchTerm = term.toLowerCase().trim();
+let currentFilter = "all";
 
-  cards.forEach(card => {
-    const category = card.dataset.category || "";
-    const name = card.dataset.name || "";
+function filterProducts() {
+
+  const searchText = searchInput
+    ? searchInput.value.toLowerCase().trim()
+    : "";
+
+  products.forEach(product => {
+
+    const category = product.dataset.category || "";
+    const name = product.dataset.name || "";
 
     const categoryMatch =
-      filter === "all" || category === filter;
+      currentFilter === "all" ||
+      category === currentFilter;
 
     const searchMatch =
-      !searchTerm || name.toLowerCase().includes(searchTerm);
+      !searchText ||
+      name.toLowerCase().includes(searchText);
 
-    card.style.display =
-      categoryMatch && searchMatch ? "block" : "none";
+    product.style.display =
+      categoryMatch && searchMatch ? "" : "none";
   });
 }
 
 
-// ===== CATEGORY BUTTONS =====
+// Category buttons
 categories.forEach(category => {
+
   category.addEventListener("click", () => {
 
     categories.forEach(item => {
@@ -54,52 +62,42 @@ categories.forEach(category => {
 
     category.classList.add("active");
 
-    const filter = category.dataset.filter || "all";
-    const searchTerm = searchBox ? searchBox.value : "";
+    currentFilter =
+      category.dataset.filter || "all";
 
-    filterProducts(filter, searchTerm);
+    filterProducts();
   });
+
 });
 
 
-// ===== SEARCH =====
-if (searchBox) {
-  searchBox.addEventListener("input", event => {
-
-    const activeCategory =
-      document.querySelector(".category.active");
-
-    const filter =
-      activeCategory?.dataset.filter || "all";
-
-    filterProducts(filter, event.target.value);
-  });
+// Search
+if (searchInput) {
+  searchInput.addEventListener("input", filterProducts);
 }
 
 
-// ===== PRODUCT LINK =====
-document.querySelectorAll(".product-link").forEach(link => {
+// Product buttons
+document.querySelectorAll(".product-link").forEach(button => {
 
-  link.addEventListener("click", event => {
-    event.preventDefault();
+  button.addEventListener("click", () => {
 
     alert(
-      "यह demo button है। बाद में यहाँ actual product link लगाया जा सकता है।"
+      "Product link yahan baad mein add kiya ja sakta hai."
     );
+
   });
 
 });
 
 
-// ===== NEWSLETTER =====
+// Newsletter
 function subscribe(event) {
+
   event.preventDefault();
 
   alert(
-    "Thanks! यह demo newsletter form है। आपका email अभी save नहीं किया गया है।"
+    "Thanks for subscribing! This is currently a demo form."
   );
+
 }
-
-
-// ===== INITIAL FILTER =====
-filterProducts("all", "");
