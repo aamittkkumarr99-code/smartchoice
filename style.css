@@ -1261,3 +1261,151 @@ button {
     gap: 8px;
   }
 }
+
+/* ===== FINAL MOBILE POLISH ===== */
+
+@media (max-width: 520px) {
+
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.08;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .hero-products {
+    width: 330px;
+    height: 200px;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .section-heading p {
+    font-size: 11px;
+  }
+
+  .category {
+    min-height: 125px;
+  }
+
+  .category span {
+    width: 52px;
+    height: 52px;
+    font-size: 27px;
+  }
+
+  .category strong {
+    font-size: 13px;
+  }
+
+  .category small {
+    font-size: 10px;
+  }
+
+  .promo-card {
+    min-height: 150px;
+    padding: 20px;
+  }
+
+  .promo-card h3 {
+    font-size: 18px;
+  }
+
+  .promo-card strong {
+    font-size: 14px;
+  }
+
+  .promo-card p {
+    font-size: 10px;
+  }
+
+  .promo-card > span {
+    font-size: 70px;
+  }
+
+  .product-grid {
+    gap: 12px;
+  }
+
+  .product {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .product-image {
+    height: 135px;
+    font-size: 62px;
+  }
+
+  .product h3 {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .rating {
+    font-size: 10px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .product-link {
+    padding: 10px 5px;
+    font-size: 11px;
+  }
+
+  .discount {
+    font-size: 9px;
+  }
+
+  .trust-strip {
+    gap: 12px;
+  }
+
+  .trust-strip strong {
+    font-size: 9px;
+  }
+
+  .trust-strip small {
+    font-size: 8px;
+  }
+
+  .deal-banner {
+    padding: 18px;
+  }
+
+  .deal-banner h2 {
+    font-size: 16px;
+  }
+
+  .deal-banner p {
+    font-size: 10px;
+  }
+
+  .newsletter {
+    padding: 20px;
+  }
+
+  .newsletter h2 {
+    font-size: 17px;
+  }
+
+  .newsletter form {
+    width: 100%;
+  }
+
+  .newsletter input {
+    font-size: 12px;
+  }
+
+  .newsletter button {
+    padding: 0 13px;
+  }
+
+}
