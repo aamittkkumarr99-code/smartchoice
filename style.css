@@ -1409,3 +1409,31 @@ button {
   }
 
 }
+
+/* ===== PRODUCT BUTTONS ===== */
+
+.product-buttons {
+  display: flex;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.product-buttons button {
+  flex: 1;
+  padding: 9px 5px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.view-product {
+  border: 1px solid #5947ee;
+  background: white;
+  color: #5947ee;
+}
+
+.buy-now {
+  border: none;
+  background: linear-gradient(90deg, #5548ed, #7049ee);
+  color: white;
+}
