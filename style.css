@@ -1437,3 +1437,30 @@ button {
   background: linear-gradient(90deg, #5548ed, #7049ee);
   color: white;
 }
+
+/* ===== PRODUCT DETAILS ===== */
+
+.product-details {
+  margin: 20px 5% 40px;
+  padding: 30px;
+  border: 1px solid #e7eaf1;
+  border-radius: 14px;
+  background: #f8f9ff;
+}
+
+.product-details h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.product-details p {
+  max-width: 600px;
+  color: #6f7b91;
+  font-size: 13px;
+}
+
+.details-price {
+  margin: 15px 0;
+  font-size: 22px;
+  font-weight: 800;
+}
