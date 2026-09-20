@@ -1418,7 +1418,7 @@ button {
   margin-top: 10px;
 }
 
-.product-buttons button {
+.product-buttons > * {
   flex: 1;
   padding: 9px 5px;
   border-radius: 7px;
