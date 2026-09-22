@@ -42,8 +42,9 @@ function filterProducts() {
       category === currentFilter;
 
     const searchMatch =
-      !searchText ||
-      name.toLowerCase().includes(searchText);
+  !searchText ||
+  name.toLowerCase().includes(searchText) ||
+  category.toLowerCase().includes(searchText);
 
     product.style.display =
       categoryMatch && searchMatch ? "" : "none";
