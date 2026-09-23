@@ -72,11 +72,19 @@ categories.forEach(category => {
 });
 
 
-// Search
-if (searchInput) {
-  searchInput.addEventListener("input", filterProducts);
-}
+// Mobile Search
+const mobileSearchInput = document.getElementById("mobile-search");
 
+if (mobileSearchInput) {
+  mobileSearchInput.addEventListener("input", () => {
+
+    if (searchInput) {
+      searchInput.value = mobileSearchInput.value;
+    }
+
+    filterProducts();
+  });
+}
 
 // Product buttons
 document.querySelectorAll(".product-link").forEach(button => {
