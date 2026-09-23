@@ -110,3 +110,23 @@ function subscribe(event) {
   );
 
 }
+
+// Search buttons
+const searchButtons = document.querySelectorAll(".search-box button, .mobile-search button");
+
+searchButtons.forEach(button => {
+  button.addEventListener("click", () => {
+
+    const input = button.closest(".search-box, .mobile-search")
+      ?.querySelector("input");
+
+    if (input) {
+      input.dispatchEvent(new Event("input"));
+      input.focus();
+    }
+
+    document.getElementById("products")?.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
