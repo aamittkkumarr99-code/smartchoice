@@ -1567,3 +1567,34 @@ button {
   }
 
 }
+
+/* ===== PRODUCT DETAILS MOBILE ===== */
+
+@media (max-width: 520px) {
+
+  .product-details {
+    margin: 18px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  .product-details h2 {
+    font-size: 20px;
+  }
+
+  .product-details p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .details-price {
+    font-size: 20px;
+  }
+
+  .product-details .buy-now {
+    width: 100%;
+    padding: 11px;
+    border-radius: 8px;
+  }
+
+}
