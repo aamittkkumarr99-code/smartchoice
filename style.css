@@ -1531,3 +1531,39 @@ button {
   }
 
 }
+
+/* ===== MOBILE SEARCH ===== */
+
+.mobile-search {
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+  .mobile-search {
+    display: flex;
+    margin: 10px 18px;
+    height: 42px;
+    background: #f7f8fc;
+    border: 1px solid #e5e8f0;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .mobile-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 15px;
+  }
+
+  .mobile-search button {
+    width: 48px;
+    border: none;
+    background: #5947ee;
+    color: white;
+    font-size: 20px;
+  }
+
+}
