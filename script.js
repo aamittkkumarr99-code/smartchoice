@@ -130,3 +130,23 @@ searchButtons.forEach(button => {
     });
   });
 });
+
+// Buy Now → Product Details
+document.querySelectorAll(".buy-now").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const productCard = button.closest(".product");
+
+    if (!productCard) return;
+
+    const detailsLink =
+      productCard.querySelector(".view-product");
+
+    if (detailsLink) {
+      detailsLink.click();
+    }
+
+  });
+
+});
