@@ -1644,3 +1644,63 @@ button {
 .buy-now:hover {
   transform: translateY(-2px);
 }
+
+/* ===== MOBILE WIDTH FIX ===== */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+
+  .header,
+  .topbar,
+  nav,
+  main,
+  section,
+  footer {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero,
+  .categories,
+  .promo-section,
+  .products-section,
+  .trust-section,
+  .plus-section,
+  .reviews-section,
+  .newsletter-section {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .promo-grid,
+  .category-grid,
+  .products-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .promo-card,
+  .category,
+  .product {
+    max-width: 100% !important;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
