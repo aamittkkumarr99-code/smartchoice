@@ -289,11 +289,58 @@
           <button class="save-btn" onclick="saveMessage()">Save Settings</button>
         </div>
       </section>
+        <section class="section-card">
+  <h2>🛍️ Product Management</h2>
+  <p>Edit your product information from here.</p>
 
+  <div class="form-group">
+    <label>Product Name</label>
+    <input type="text" id="adminProductName" placeholder="Product name">
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <input type="text" id="adminProductPrice" placeholder="₹79,900">
+  </div>
+
+  <div class="form-group">
+    <label>Product Image URL</label>
+    <input type="text" id="adminProductImage" placeholder="https://...">
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea id="adminProductDescription" placeholder="Product description"></textarea>
+  </div>
+
+  <button class="save-btn" onclick="saveProduct()">
+    💾 Save Product
+  </button>
+
+  <p id="productSaved" style="margin-top:12px;"></p>
+</section>
     </main>
   </div>
 
   <script>
+    <script>
+function saveProduct() {
+  const name = document.getElementById("adminProductName").value;
+  const price = document.getElementById("adminProductPrice").value;
+  const image = document.getElementById("adminProductImage").value;
+  const description = document.getElementById("adminProductDescription").value;
+
+  localStorage.setItem("smartchoiceProduct", JSON.stringify({
+    name: name,
+    price: price,
+    image: image,
+    description: description
+  }));
+
+  document.getElementById("productSaved").innerText =
+    "✅ Product saved successfully!";
+}
+</script>
     function showSection(id, button) {
       document.querySelectorAll(".section").forEach(section => {
         section.classList.remove("active");
