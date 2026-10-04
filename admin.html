@@ -303,6 +303,55 @@
     <option value="sony">Sony WH-1000XM5</option>
     <option value="watch">Noise Smartwatch</option>
     <option value="shoes">Premium Running Shoes</option>
+    <script>
+const productData = {
+  iphone: {
+    name: "iPhone 15",
+    price: "₹79,900",
+    image: "",
+    description: "Premium smartphone with powerful performance."
+  },
+  macbook: {
+    name: "MacBook Air M2",
+    price: "₹99,900",
+    image: "",
+    description: "Lightweight laptop with powerful performance."
+  },
+  sony: {
+    name: "Sony WH-1000XM5",
+    price: "₹29,999",
+    image: "",
+    description: "Premium wireless noise cancelling headphones."
+  },
+  watch: {
+    name: "Noise Smartwatch",
+    price: "₹2,999",
+    image: "",
+    description: "Smartwatch with fitness and smart features."
+  },
+  shoes: {
+    name: "Premium Running Shoes",
+    price: "₹1,999",
+    image: "",
+    description: "Comfortable shoes for everyday running."
+  }
+};
+
+function loadProduct() {
+  const selected = document.getElementById("adminProductSelect").value;
+  const product = productData[selected];
+
+  document.getElementById("adminProductName").value = product.name;
+  document.getElementById("adminProductPrice").value = product.price;
+  document.getElementById("adminProductImage").value = product.image;
+  document.getElementById("adminProductDescription").value = product.description;
+}
+
+document.getElementById("adminProductSelect")
+  .addEventListener("change", loadProduct);
+
+loadProduct();
+</script>
   </select>
 </div>
     <label>Product Name</label>
