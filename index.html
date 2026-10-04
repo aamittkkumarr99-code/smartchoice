@@ -752,6 +752,29 @@
 
 
   <!-- JAVASCRIPT -->
+  <script>
+const savedProduct = localStorage.getItem("smartchoiceProduct");
+
+if (savedProduct) {
+  const product = JSON.parse(savedProduct);
+
+  const productName = document.querySelector(".product h3");
+  const productPrice = document.querySelector(".product .price");
+  const productImage = document.querySelector(".product img");
+
+  if (productName && product.name) {
+    productName.textContent = product.name;
+  }
+
+  if (productPrice && product.price) {
+    productPrice.textContent = product.price;
+  }
+
+  if (productImage && product.image) {
+    productImage.src = product.image;
+  }
+}
+</script>
   <script src="script.js"></script>
 
 </body>
