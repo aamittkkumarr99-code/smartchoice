@@ -775,6 +775,49 @@ if (savedProduct) {
   }
 }
 </script>
+  <script>
+function loadAdminProducts() {
+  const products = document.querySelectorAll(".product");
+
+  products.forEach((card, index) => {
+
+    const productIds = [
+      "iphone",
+      "macbook",
+      "sony",
+      "watch",
+      "shoes"
+    ];
+
+    const id = productIds[index];
+    const saved = localStorage.getItem("smartchoice_" + id);
+
+    if (!saved) return;
+
+    const data = JSON.parse(saved);
+
+    const name = card.querySelector("h3");
+    const price = card.querySelector(".price");
+    const image = card.querySelector("img");
+
+    if (name && data.name) {
+      name.textContent = data.name;
+    }
+
+    if (price && data.price) {
+      price.textContent = data.price;
+    }
+
+    if (image && data.image) {
+      image.src = data.image;
+    }
+  });
+}
+
+loadAdminProducts();
+</script>
+
+<script src="script.js"></script>
   <script src="script.js"></script>
 
 </body>
