@@ -385,21 +385,24 @@ loadProduct();
   <script>
     <script>
 function saveProduct() {
-  const name = document.getElementById("adminProductName").value;
-  const price = document.getElementById("adminProductPrice").value;
-  const image = document.getElementById("adminProductImage").value;
-  const description = document.getElementById("adminProductDescription").value;
+  const selected = document.getElementById("adminProductSelect").value;
 
-  localStorage.setItem("smartchoiceProduct", JSON.stringify({
-    name: name,
-    price: price,
-    image: image,
-    description: description
-  }));
+  const product = {
+    name: document.getElementById("adminProductName").value,
+    price: document.getElementById("adminProductPrice").value,
+    image: document.getElementById("adminProductImage").value,
+    description: document.getElementById("adminProductDescription").value
+  };
+
+  localStorage.setItem(
+    "smartchoice_" + selected,
+    JSON.stringify(product)
+  );
 
   document.getElementById("productSaved").innerText =
-    "✅ Product saved successfully!";
+    "✅ " + product.name + " saved successfully!";
 }
+
 </script>
     function showSection(id, button) {
       document.querySelectorAll(".section").forEach(section => {
