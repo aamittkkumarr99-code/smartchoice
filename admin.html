@@ -370,6 +370,14 @@ loadProduct();
 
   <div class="form-group">
     <label>Description</label>
+    <div class="form-group">
+  <label>Buy Now Link</label>
+  <input
+    type="url"
+    id="adminProductLink"
+    placeholder="https://example.com/product"
+  >
+</div>
     <textarea id="adminProductDescription" placeholder="Product description"></textarea>
   </div>
 
@@ -386,6 +394,7 @@ loadProduct();
     <script>
 function saveProduct() {
   const selected = document.getElementById("adminProductSelect").value;
+  link: document.getElementById("adminProductLink").value
 
   const product = {
     name: document.getElementById("adminProductName").value,
