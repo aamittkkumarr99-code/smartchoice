@@ -9,7 +9,47 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+<!-- SmartChoice Settings -->
+<div id="settings-panel" style="display:none; position:fixed; right:15px; top:80px; z-index:9999; background:white; color:#14213d; padding:20px; border-radius:14px; box-shadow:0 4px 25px #0003; width:260px;">
+  <h3>⚙️ Website Settings</h3>
 
+  <label for="theme-setting">Website Theme</label>
+  <select id="theme-setting" style="width:100%; padding:10px; margin:10px 0;">
+    <option value="light">Light Mode</option>
+    <option value="dark">Dark Mode</option>
+  </select>
+
+  <button onclick="applyTheme()" style="padding:10px; margin-right:5px;">Apply</button>
+  <button onclick="closeSettings()" style="padding:10px;">Close</button>
+</div>
+
+<button onclick="openSettings()" style="position:fixed; right:15px; bottom:25px; z-index:9998; border:0; border-radius:50%; width:55px; height:55px; background:#5548ed; color:white; font-size:24px;">
+  ⚙️
+</button>
+
+<script>
+function openSettings() {
+  document.getElementById("settings-panel").style.display = "block";
+}
+
+function closeSettings() {
+  document.getElementById("settings-panel").style.display = "none";
+}
+
+function applyTheme() {
+  const theme = document.getElementById("theme-setting").value;
+  document.body.style.background = theme === "dark" ? "#111827" : "#ffffff";
+  document.body.style.color = theme === "dark" ? "#ffffff" : "#14213d";
+  localStorage.setItem("smartchoiceTheme", theme);
+}
+
+const savedTheme = localStorage.getItem("smartchoiceTheme");
+if (savedTheme) {
+  document.getElementById("theme-setting").value = savedTheme;
+  applyTheme();
+}
+</script>
+  
 <body>
 
   <!-- TOP BAR -->
