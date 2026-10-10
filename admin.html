@@ -590,3 +590,6 @@ function saveProduct() {
 </html>
 
 link: document.getElementById("adminProductLink").value
+
+const link = document.createElement("p");
+link.textContent = product.link || "Product link not set";
