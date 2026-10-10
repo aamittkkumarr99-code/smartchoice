@@ -77,6 +77,46 @@ if (savedTheme) {
   }
 })();
 </script>
+<script>
+(function () {
+  const saved = localStorage.getItem("smartchoiceAdminSettings");
+  if (!saved) return;
+
+  try {
+    const settings = JSON.parse(saved);
+
+    // Website name
+    if (settings.name) {
+      const brand = document.querySelector(".brand");
+      if (brand) {
+        const heading = brand.querySelector("h1, h2, .brand-name");
+        if (heading) heading.textContent = settings.name;
+      }
+    }
+
+    // Website logo
+    if (settings.logo) {
+      const brand = document.querySelector(".brand");
+      if (brand) {
+        let logo = brand.querySelector("img");
+
+        if (!logo) {
+          logo = document.createElement("img");
+          logo.alt = "Website logo";
+          logo.style.width = "40px";
+          logo.style.height = "40px";
+          logo.style.objectFit = "contain";
+          brand.prepend(logo);
+        }
+
+        logo.src = settings.logo;
+      }
+    }
+  } catch (error) {
+    console.error("Settings could not be applied.");
+  }
+})();
+</script>
   
 <body>
 
