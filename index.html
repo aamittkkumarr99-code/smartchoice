@@ -49,6 +49,34 @@ if (savedTheme) {
   applyTheme();
 }
 </script>
+<script>
+(function applyAdminSettings() {
+  const saved = localStorage.getItem("smartchoiceAdminSettings");
+  if (!saved) return;
+
+  try {
+    const settings = JSON.parse(saved);
+
+    if (settings.name) {
+      const brand = document.querySelector(".brand");
+      if (brand) {
+        const heading = brand.querySelector("h1, h2, .brand-name");
+        if (heading) heading.textContent = settings.name;
+      }
+    }
+
+    if (settings.theme === "dark") {
+      document.body.style.backgroundColor = "#111827";
+      document.body.style.color = "#ffffff";
+    } else if (settings.theme === "light") {
+      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.color = "#14213d";
+    }
+  } catch (error) {
+    console.error("Settings could not be applied.");
+  }
+})();
+</script>
   
 <body>
 
