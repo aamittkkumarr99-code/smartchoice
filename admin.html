@@ -469,6 +469,74 @@ loadProduct();
 
   <button class="save-btn" onclick="saveProduct()">
     💾 Save Product
+    <hr style="margin:25px 0;">
+
+<h3>📦 Saved Products</h3>
+
+<div id="savedProductsList"></div>
+
+<script>
+function showSavedProducts() {
+  const ids = ["iphone", "macbook", "sony", "watch", "shoes"];
+  const list = document.getElementById("savedProductsList");
+
+  list.innerHTML = "";
+
+  ids.forEach(function(id) {
+    const saved = localStorage.getItem("smartchoice_" + id);
+    if (!saved) return;
+
+    try {
+      const product = JSON.parse(saved);
+
+      const item = document.createElement("div");
+      item.style.cssText =
+        "padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:10px;";
+
+      const title = document.createElement("strong");
+      title.textContent = product.name || id;
+
+      const price = document.createElement("p");
+      price.textContent = product.price || "Price not set";
+
+      const edit = document.createElement("button");
+      edit.textContent = "Edit";
+      edit.style.marginRight = "8px";
+      edit.onclick = function() {
+        document.getElementById("adminProductSelect").value = id;
+        document.getElementById("adminProductSelect").dispatchEvent(
+          new Event("change")
+        );
+        document.getElementById("adminProductName").value = product.name || "";
+        document.getElementById("adminProductPrice").value = product.price || "";
+        document.getElementById("adminProductImage").value = product.image || "";
+        document.getElementById("adminProductDescription").value =
+          product.description || "";
+      };
+
+      const del = document.createElement("button");
+      del.textContent = "Delete saved data";
+      del.onclick = function() {
+        if (confirm("Saved data delete karna hai?")) {
+          localStorage.removeItem("smartchoice_" + id);
+          showSavedProducts();
+        }
+      };
+
+      item.append(title, price, edit, del);
+      list.appendChild(item);
+    } catch (error) {
+      console.error("Product data could not be loaded.");
+    }
+  });
+
+  if (!list.children.length) {
+    list.textContent = "Abhi koi saved product nahi hai.";
+  }
+}
+
+showSavedProducts();
+</script>
   </button>
 
   <p id="productSaved" style="margin-top:12px;"></p>
