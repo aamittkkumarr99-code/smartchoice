@@ -166,7 +166,68 @@
     }
   </style>
 </head>
+<section style="max-width:600px;margin:30px auto;padding:24px;background:#f4f5fb;border-radius:16px;font-family:Arial,sans-serif;color:#14213d;">
+  <h2>⚙️ SmartChoice Admin Settings</h2>
+  <p>Website ki basic settings yahan badlein.</p>
 
+  <label for="siteName">Website Name</label>
+  <input id="siteName" type="text" placeholder="SmartChoice"
+    style="display:block;width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+  <label for="siteLogo">Logo Image URL</label>
+  <input id="siteLogo" type="url" placeholder="https://example.com/logo.png"
+    style="display:block;width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+  <label for="siteEmail">Contact Email</label>
+  <input id="siteEmail" type="email" placeholder="contact@example.com"
+    style="display:block;width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+  <label for="siteTheme">Website Theme</label>
+  <select id="siteTheme"
+    style="display:block;width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+
+  <button type="button" onclick="saveAdminSettings()"
+    style="padding:12px 20px;background:#5548ed;color:white;border:0;border-radius:8px;">
+    Save Settings
+  </button>
+
+  <p id="settingsMessage" role="status"></p>
+</section>
+
+<script>
+function saveAdminSettings() {
+  const settings = {
+    name: document.getElementById("siteName").value.trim(),
+    logo: document.getElementById("siteLogo").value.trim(),
+    email: document.getElementById("siteEmail").value.trim(),
+    theme: document.getElementById("siteTheme").value
+  };
+
+  localStorage.setItem("smartchoiceAdminSettings", JSON.stringify(settings));
+
+  document.getElementById("settingsMessage").textContent =
+    "Settings saved in this browser.";
+}
+
+(function loadAdminSettings() {
+  const saved = localStorage.getItem("smartchoiceAdminSettings");
+  if (!saved) return;
+
+  try {
+    const settings = JSON.parse(saved);
+    document.getElementById("siteName").value = settings.name || "";
+    document.getElementById("siteLogo").value = settings.logo || "";
+    document.getElementById("siteEmail").value = settings.email || "";
+    document.getElementById("siteTheme").value = settings.theme || "light";
+  } catch (error) {
+    console.error("Could not load saved settings.");
+  }
+})();
+</script>
+  
 <body>
 
   <header class="admin-header">
