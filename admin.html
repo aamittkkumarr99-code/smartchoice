@@ -175,6 +175,31 @@
     style="display:block;width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
 
   <label for="siteLogo">Logo Image URL</label>
+ <div style="margin:12px 0 20px;">
+  <p><strong>Logo Preview</strong></p>
+  <img
+    id="logoPreview"
+    src=""
+    alt="Website logo preview"
+    style="display:none;width:100px;height:100px;object-fit:contain;border:1px solid #ddd;border-radius:10px;padding:8px;"
+  >
+</div>
+
+<script>
+const logoInput = document.getElementById("siteLogo");
+
+logoInput.addEventListener("input", function () {
+  const preview = document.getElementById("logoPreview");
+  const url = logoInput.value.trim();
+
+  if (url) {
+    preview.src = url;
+    preview.style.display = "block";
+  } else {
+    preview.style.display = "none";
+  }
+});
+</script> 
   <input id="siteLogo" type="url" placeholder="https://example.com/logo.png"
     style="display:block;width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
 
